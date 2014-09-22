@@ -12,7 +12,7 @@ $(document).ready(function() {
     curvedLines: false,
     maxSpeedY: 1.8,
     maxSpeedX: 1.8,
-    density: 5000,
+    density: 10000,
     proximity: 50
   });
   $('.intro').css({
