@@ -205,8 +205,15 @@
           this.speed.x = +((Math.random() * options.maxSpeedX) + options.minSpeedX).toFixed(2);
           break;
         default:
-          this.speed.x = +((-options.maxSpeedX / 2) + (Math.random() * options.maxSpeedX)).toFixed(2);
-          this.speed.x += this.speed.x > 0 ? options.minSpeedX : -options.minSpeedX;
+          if (this.position.x > $el.width/2) {
+            this.speed.x = +((-options.maxSpeedX / 2) + (Math.random() * options.maxSpeedX)).toFixed(2);
+            this.speed.x += this.speed.x > 0 ? options.minSpeedX : -options.minSpeedX;
+          } else {
+            this.speed.x = -((-options.maxSpeedX / 2) + (Math.random() * options.maxSpeedX)).toFixed(2);
+            this.speed.x -= this.speed.x > 0 ? options.minSpeedX : -options.minSpeedX;
+          }
+          //this.speed.x = +((-options.maxSpeedX / 2) + (Math.random() * options.maxSpeedX)).toFixed(2);
+          //this.speed.x += this.speed.x > 0 ? options.minSpeedX : -options.minSpeedX;
           break;
       }
       switch (options.directionY) {
@@ -214,7 +221,12 @@
           this.speed.y = +(-options.maxSpeedY + (Math.random() * options.maxSpeedY) - options.minSpeedY).toFixed(2);
           break;
         case 'down':
-          this.speed.y = +((Math.random() * options.maxSpeedY) + options.minSpeedY).toFixed(2);
+          if (this.position.y > $el.height/2) {
+            this.speed.y = +((Math.random() * options.maxSpeedY) + options.minSpeedY).toFixed(2);
+          } else {
+            this.speed.y = -((Math.random() * options.maxSpeedY) + options.minSpeedY).toFixed(2);
+          }
+          //this.speed.y = +((Math.random() * options.maxSpeedY) + options.minSpeedY).toFixed(2);
           break;
         default:
           this.speed.y = +((-options.maxSpeedY / 2) + (Math.random() * options.maxSpeedY)).toFixed(2);
